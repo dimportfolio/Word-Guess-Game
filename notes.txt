@@ -1,3 +1,31 @@
+PSEUDO CODE
+Variables
+----------
+User Input - event.key
+Attempted Guesses - array
+Incorrect Guesses - array
+Guesses remaining - variable 9 , - 1 for each guess
+wins - variable 0 ++
+losses - variable 0 ++
+Generator - generates random word from an array
+WordList - array of words
+--------------
+
+start game
+generate random word
+user inputs a letter as a guess
+-store the input
+-compare input , array.indexOf(word)
+-if element appears in array, push to ???? | add to generated word?
+-if element does not appear in array, push to incorrectGuesses | guessRemaining - 1
+
+
+if guessRemaining hits 0, reset the game
+When game resets , empty attemptedGuesses & incorrectGuesses, set guessesRemaining to 9
+
+
+
+--------------------------
 //list of words - recomment back this list
 // var wordList = ["charmander","bulbasaur","squirtle","pikachu","eevee","snorlax","dragonite"];
 var wordList = ["eevee"];
@@ -9,62 +37,22 @@ var incorrectGuess = 0;
 console.log(generator);
 
 var cloak = [];
-var indices = [];
 
-newWord = Array(generator.length).fill('_ ');
-document.getElementById("random").innerHTML = newWord.join();
+    for(i=0;i<generator.length;i++){
+     var hiddenWord = generator.substr(0, i);
+    cloak.push(hiddenWord);
+        console.log(hiddenWord);
+        console.log(cloak);
 
-// console.log(currentWord);
-// for(i=0;i<generator.length;i++){
-// var hiddenWord = generator.substr(i, 1);
-// cloak.push(hiddenWord);
-
-// };
-// var newWord = cloak.join();
-// console.log(newWord);
-// console.log(cloak.fill("-"));
-// document.getElementById("random").innerHTML = cloak.join();
+};
+// console.log(hiddenWord);
 
 //main function 
 document.onkeyup = function (enter){
     var store = enter.key;
-    console.log(newWord.indexOf(store))
     console.log(store);
-    // var idx = generator.indexOf(store);
-    // while (idx != -1) {
-    //     newWord.push(idx);
-    //     idx = newWord.indexOf(store, idx + 1);
-    //     document.getElementById("random").innerHTML = newWord;
-    //   }
-    
-var idx = generator.indexOf(store);
-while (idx != -1) {
-  indices.push(idx);
-  idx = generator.indexOf(store, idx + 1);
-}
-console.log(indices);
-
-for (i=0;i<indices.length;i++){
-    newWord.splice(indices[i],1, store);
-    document.getElementById("random").innerHTML = newWord;
-}
-indices.length=0;
-
-// [0, 2, 4]
-      /*
-    if (generator.indexOf(store) != -1){
-        console.log(generator.indexOf(store));
-        newWord.splice(generator.indexOf(store), 1, store);
-        // newWord.push(store);
-        document.getElementById("random").innerHTML = newWord;
-    }
-    */
-    // if (generator.find(store)) {
-    //      cloak.push(generator.indexOf(store));
-    //      document.getElementById("random").innerHTML = cloak;
-    //  }
-    
-    /*
+    //testing generator works
+    // console.log(generator);
     var n = generator.search(store);
     if (n != -1) {
         correctGuess++;
@@ -74,7 +62,7 @@ indices.length=0;
         incorrectGuess++;
         document.getElementById("test2").innerHTML = incorrectGuess;
     }
-    */
+
     
 
     
@@ -172,43 +160,5 @@ prints out this
 ee-ee
 -evee
 -evee
-
-*/
-
-
-/*
-
-this stores all values into an array
-var cloak = [];
-
-    for(i=0;i<generator.length;i++){
-     var hiddenWord = generator.substr(i, 1);
-    cloak.push(hiddenWord);
-        console.log(hiddenWord);
-        console.log(cloak);
-
-};
-*/
-
-
-
-
-/*
-
-
-used this 
-
-var cloak = [];
-
-for(i=0;i<generator.length;i++){
-var hiddenWord = generator.substr(i, 1);
-cloak.push(hiddenWord);
-
-};
-var newWord = cloak.join();
-console.log(newWord);
-alert(newWord);
-console.log(cloak.fill("-"));
-document.getElementById("random").innerHTML = cloak.join();
 
 */
