@@ -26,6 +26,7 @@ When game resets , empty attemptedGuesses & incorrectGuesses, set guessesRemaini
 
 
 Things I tried in my code
+
 Array.pseudocode.method()
 -
 .fill()
@@ -43,6 +44,9 @@ DOM.events
 
 Element.property
 .innerHTML
+.style.backgroundImage = 'url('+ image +')';
+.style.backgroundRepeat = "no-repeat";
+.style.backgroundSize = "100%";
 
 GlobalEventHandlers
 .onkeyup
@@ -54,6 +58,12 @@ Math.random()
 static variables (var something = something at a global level)
 dynamic variables (functions() at a global level)
 return statements for functions
+
+Javascript Objects [tried to  create an object, with a key that had an array of key value pairs] ... I think wording is right
+Object.keys
+Object.values
+KEY -in- OBJECT
+
 
 Logic I used
 if statements
