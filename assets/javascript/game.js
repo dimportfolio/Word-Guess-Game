@@ -2,12 +2,12 @@
 var list = {
     // generator : {
     "charmander":"./assets/images/charmander.jpg",
-    "bulbasaur":"./assets/images/bulbasaur.jpg",
-    "squirtle":"./assets/images/squirtle.jpg",
-    "pikachu":"./assets/images/pikachu.jpg",
+    "bulbasaur":"./assets/images/bulbasaur.png",
+    "squirtle":"./assets/images/squirtle.png",
+    "flareon":"./assets/images/flareon.jpg",
     "eevee":"./assets/images/eevee.jpg",
-    "snorlax":"./assets/images/snorlax.jpg",
-    "dragonite":"./assets/images/dragonite.jpg"
+    "snorlax":"./assets/images/snorlax.png",
+    "dragonite":"./assets/images/dragonite.png"
     
     // }
 }
@@ -43,16 +43,10 @@ var list = {
 // }
 // ]
 // }
-console.log(list);
 
 var key = Object.keys(list);
-console.log(key);
-
 var value = Object.values(list);
-console.log(value);
 
-var pairs = Object.entries(list);
-console.log(pairs);
 
 //random word generator
 function randomizer() {
@@ -60,26 +54,28 @@ function randomizer() {
     return generator;
 }
 var generator = randomizer();
-console.log(generator);
-
-indexValue = key.indexOf(generator);
-console.log(indexValue);
-
-image = value[indexValue];
 
 function change() {
     var newWord = Array(generator.length).fill('_ ');
     return newWord;
 }
 var newWord = change();
-  
+
+indexValue = key.indexOf(generator);
+image = value[indexValue];
+
 function getImage() {
     testObject = generator in list;
     if (testObject == true){
-        document.body.style.backgroundImage = 'url('+image+')';
+        // document.getElementById('testing').style.Image = 'url(image)';
+        document.getElementById("test").style.backgroundImage = 'url('+ image +')';
+        document.getElementById("test").style.backgroundRepeat = "no-repeat";
+        document.getElementById("test").style.backgroundSize = "100%";
+        
     }
 
 }
+getImage();
 
 
 
@@ -133,6 +129,9 @@ document.onkeyup = function (enter){
         newWord = change();
         randomizer();
         change();
+        indexValue = key.indexOf(generator);
+        image = value[indexValue];
+        getImage();
         document.getElementById("random").innerHTML = change();
         document.getElementById("wrong").innerHTML = ""; 
         document.getElementById("remain").innerHTML = "Number of guesses remaining: " + guessRemaining;
@@ -149,11 +148,28 @@ document.onkeyup = function (enter){
         newWord = change();
         randomizer();
         change();
+        indexValue = key.indexOf(generator);
+        image = value[indexValue];
+        getImage();
         document.getElementById("random").innerHTML = change(); 
         document.getElementById("wrong").innerHTML = ""; 
         document.getElementById("remain").innerHTML = "Number of guesses remaining: " + guessRemaining;
         document.getElementById("lose").innerHTML = "Losses: " + losses;
     }
+}
+
+function resetGame () {
+generator = randomizer();
+newWord = change();
+randomizer();
+change();
+indexValue = key.indexOf(generator);
+image = value[indexValue];
+getImage();
+document.getElementById("random").innerHTML = change(); 
+document.getElementById("wrong").innerHTML = ""; 
+document.getElementById("remain").innerHTML = "Number of guesses remaining: " + guessRemaining;
+document.getElementById("lose").innerHTML = "Losses: " + losses;
 }
 
 //---------------------------------
