@@ -1,0 +1,102 @@
+//list of words - recomment back this list
+// var wordList = ["charmander","bulbasaur","squirtle","pikachu","eevee","snorlax","dragonite"];
+// var wordList = ["charmander","bulbasaur","squirtle","pikachu","eevee","snorlax","dragonite", "ratattata"];
+var wordList = ["aa","bbbb","ccc","ddddd"];
+
+
+
+//variables and arrays
+var wins = 0;
+var losses = 0;
+var guessRemaining = 9;
+var incorrectGuess = [];
+var cloak = [];
+var indices = [];
+
+
+
+//main function 
+
+document.onkeyup = function (enter){
+    var store = enter.key;
+    var idx = generator.indexOf(store);
+// logic to run through and find if  the guess is in the generated word
+    if (generator.search(store) != -1){
+        while (idx != -1) {
+            indices.push(idx);
+            idx = generator.indexOf(store, idx + 1);
+        }
+        // loop that goes through and fills in the stored key that is correct, in the indexes that is stored from the while loop
+        for (i=0;i<indices.length;i++){
+            newWord.splice(indices[i],1, store);
+            document.getElementById("random").innerHTML = newWord;
+        }
+        console.log(newWord.join(""))
+        indices.length=0;
+
+    }
+// logic in order to populate the wrong guesses onto the page
+    else {
+        incorrectGuess.push(store);
+        document.getElementById("wrong").innerHTML = incorrectGuess;
+        guessRemaining = guessRemaining - 1;
+        document.getElementById("remain").innerHTML = "Number of guesses remaining: " + guessRemaining;
+
+    }
+    
+    // logic that happens when you've guessed all the words
+    if (newWord.join("") == generator){
+        prompt("you win");
+        wins++;
+        incorrectGuess.length = 0;
+        newWord.length = 0;
+        guessRemaining = 9;
+        randomizer();
+        change();
+        document.getElementById("random").innerHTML = change();
+        document.getElementById("wrong").innerHTML = ""; 
+        document.getElementById("remain").innerHTML = "Number of guesses remaining: " + guessRemaining;
+        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        console.log(randomizer());
+    }
+    // logic that happens when you've used all your guesses
+    if (guessRemaining == 0) {
+        prompt("you lose");
+        losses++;
+        incorrectGuess.length = 0;
+        newWord.length = 0;
+        guessRemaining = 9;
+        randomizer();
+        change();
+        document.getElementById("random").innerHTML = change(); 
+        document.getElementById("wrong").innerHTML = ""; 
+        document.getElementById("remain").innerHTML = "Number of guesses remaining: " + guessRemaining;
+        document.getElementById("lose").innerHTML = "Losses: " + losses;
+        console.log(randomizer());
+        console.log(change());
+    }
+    console.log(guessRemaining);
+    }
+
+
+//random word generator
+
+// var generator = wordList[Math.floor(Math.random() * wordList.length)];
+// console.log(generator);
+// var newWord = Array(generator.length).fill('_ ');
+// console.log(newWord);
+// var randomWord = [];
+// var randomMask = [];
+
+function randomizer() {
+    var generator = wordList[Math.floor(Math.random() * wordList.length)];
+    return generator;
+}
+var generator = randomizer();
+console.log(generator);
+function change() {
+    var newWord = Array(generator.length).fill('_ ');
+    return newWord;
+}
+var newWord = change();
+console.log(change());

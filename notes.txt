@@ -25,9 +25,67 @@ When game resets , empty attemptedGuesses & incorrectGuesses, set guessesRemaini
 
 
 
+Things I tried in my code
+Array.pseudocode.method()
+-
+.fill()
+.join()
+.indexOf()
+.search()
+.push()
+.splice()
+
+Array.property
+.length
+
+DOM.events
+.getElementById()
+
+Element.property
+.innerHTML
+
+GlobalEventHandlers
+.onkeyup
+
+
+Math.floor()
+Math.random()
+
+static variables (var something = something at a global level)
+dynamic variables (functions() at a global level)
+return statements for functions
+
+Logic I used
+if statements
+if else statements
+while loops
+for loops
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code I used
 --------------------------
 //list of words - recomment back this list
-// var wordList = ["charmander","bulbasaur","squirtle","pikachu","eevee","snorlax","dragonite"];
+// var wordList = ["charmander","bulbasaur","squirtle","pikachu","eevee","snorlax","dragonite", "ratattata"];
 var wordList = ["eevee"];
 //random word generator
 var generator = wordList[Math.floor(Math.random() * wordList.length)];

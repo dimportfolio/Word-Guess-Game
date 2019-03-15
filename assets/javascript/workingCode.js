@@ -1,87 +1,18 @@
-// var wordList = ["charmander","bulbasaur","squirtle","pikachu","eevee","snorlax","dragonite"];
-var list = {
-    // generator : {
-    "charmander":"./assets/images/charmander.jpg",
-    "bulbasaur":"./assets/images/bulbasaur.jpg",
-    "squirtle":"./assets/images/squirtle.jpg",
-    "pikachu":"./assets/images/pikachu.jpg",
-    "eevee":"./assets/images/eevee.jpg",
-    "snorlax":"./assets/images/snorlax.jpg",
-    "dragonite":"./assets/images/dragonite.jpg"
-    
-    // }
-}
-// var list = {
-// generator : [
-// {
-//     "charmander": "1",
-//     "img": "./assets/images/charmander.jpg"  
-// },
-// {
-//     "bulbasaur": "2",
-//     "img": "./assets/images/bulbasaur.jpg"
-// },
-// {
-//     "squirtle": "3",
-//     "img": "./assets/images/squirtle.jpg"
-// },
-// {
-//     "pikachu": "4",
-//     "img": "./assets/images/pikachu.jpg"
-// },
-// {
-//     "eevee": "5",
-//     "img": "./assets/images/eevee.jpg"
-// },
-// {
-//     "snorlax": "6",
-//     "img": "./assets/images/snorlax.jpg"
-// },
-// {
-//     "dragonite": "8",
-//     "img": "./assets/images/dragonite.jpg"
-// }
-// ]
-// }
-console.log(list);
-
-var key = Object.keys(list);
-console.log(key);
-
-var value = Object.values(list);
-console.log(value);
-
-var pairs = Object.entries(list);
-console.log(pairs);
-
+var wordList = ["charmander","bulbasaur","squirtle","pikachu","eevee","snorlax","dragonite"];
 //random word generator
+
+
 function randomizer() {
-    var generator = key[Math.floor(Math.random() * key.length)];
+    var generator = wordList[Math.floor(Math.random() * wordList.length)];
     return generator;
 }
 var generator = randomizer();
-console.log(generator);
-
-indexValue = key.indexOf(generator);
-console.log(indexValue);
-
-image = value[indexValue];
 
 function change() {
     var newWord = Array(generator.length).fill('_ ');
     return newWord;
 }
-var newWord = change();
-  
-function getImage() {
-    testObject = generator in list;
-    if (testObject == true){
-        document.body.style.backgroundImage = 'url('+image+')';
-    }
-
-}
-
-
+var newWord = change();;
 
 //variables and arrays
 var wins = 0;
@@ -154,7 +85,8 @@ document.onkeyup = function (enter){
         document.getElementById("remain").innerHTML = "Number of guesses remaining: " + guessRemaining;
         document.getElementById("lose").innerHTML = "Losses: " + losses;
     }
-}
+    console.log(guessRemaining);
+    }
 
 //---------------------------------
 
