@@ -73,6 +73,9 @@ for loops
 
 
 
+useful links
+https://javascript.info/keys-values-entries
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 
 
